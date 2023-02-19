@@ -20,7 +20,8 @@ class IPInfo(object):
     def __init__(self):
         super(IPInfo, self).__init__()
         self.url_ip = "https://api.ipify.org/?format=json"
-        self.url_info = "https://ipinfo.io/<IP>/geo"
+        self.url_info = "https://ipinfo.io/"
+        self.url_info_suffix = "/geo"
 
 
 
@@ -36,9 +37,11 @@ class IPInfo(object):
 
     def query_ip_info(self, query):
         # query_ip_info -> JSON
+        result = requests.get(self.url_info+query+self.url_info_suffix)
+
         # parse result (JSON -> dict)
         # extract info
-        return query
+        return result
 
     def get_data(self, query=None):
         # if !query
