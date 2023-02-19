@@ -28,11 +28,11 @@ class ArxivClient(object):
 
     def xml_to_dict(self, results):
         # parxe XML to dict (all at once)
-        pass
+        return results
 
     def extract_data(self, data):
         # get part of data dict
-        pass
+        return data
 
     
     def get_data(self, query):
