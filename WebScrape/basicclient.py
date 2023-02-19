@@ -21,12 +21,13 @@ class WebClient(object):
         # connect to url
         httppool = urllib3.PoolManager()
         result = httppool.request("GET", self.url)
-        print(result.status)
-        print(result.headers)
-        print(result.data)
+        # print(result.status)
+        # print(result.headers)
         # get URL content
         # store content
-        pass
+        self.html = result.data.decode('utf-8')
+        # print(self.html)
+        
 
     def search_html(self):
         # search HTML received for 
