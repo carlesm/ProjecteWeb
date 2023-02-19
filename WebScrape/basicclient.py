@@ -35,7 +35,6 @@ class WebClient(object):
 
 
 if __name__ == "__main__":
-    # create client class
-    # get data from client
-    # print data
-    pass
+    client = WebClient()
+    data = client.get_data()
+    print(data)
