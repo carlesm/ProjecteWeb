@@ -12,6 +12,8 @@ https://info.arxiv.org/help/api/basics.html
 import urllib, urllib.request
 import xmltodict
 import pprint
+import sys 
+
 
 class ArxivClient(object):
     def __init__(self):
@@ -56,7 +58,7 @@ class ArxivClient(object):
 
 if __name__=="__main__":
     client = ArxivClient()
-    if not sys.argv[1]:
+    if len(sys.argv)>1:
         data = client.get_data(sys.argv[1])
     else:
         data = client.get_data("ltsm")
