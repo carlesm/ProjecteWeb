@@ -10,6 +10,7 @@ https://info.arxiv.org/help/api/basics.html
 '''
 
 import urllib, urllib.request
+import xmltodict
 
 class ArxivClient(object):
     def __init__(self):
@@ -28,6 +29,7 @@ class ArxivClient(object):
 
     def xml_to_dict(self, results):
         # parxe XML to dict (all at once)
+        results = xmltodict.parse(results)
         return results
 
     def extract_data(self, data):
