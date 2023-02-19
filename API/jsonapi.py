@@ -26,21 +26,28 @@ class IPInfo(object):
 
 
     
-    def get_own_ip(self):
-        # query ipify -> JSON
-        result = requests.get(self.url_ip)
-        # parse result (JSON -> dict)
+    def _get_json_url(self, url) -> str:
+        result = requests.get(url)
         data = json.loads(result.text)
+        return data
+
+    def get_own_ip(self):
+        # # query ipify -> JSON
+        # result = requests.get(self.url_ip)
+        # # parse result (JSON -> dict)
+        # data = json.loads(result.text)
         # extract IP
+        data = self._get_json_url(self.url_ip)
         return data["ip"]
         
 
     def query_ip_info(self, query):
-        # query_ip_info -> JSON
-        result = requests.get(self.url_info+query+self.url_info_suffix)
-        # parse result (JSON -> dict)
-        data = json.loads(result.text)
-        # extract info
+        # # query_ip_info -> JSON
+        # result = requests.get(self.url_info+query+self.url_info_suffix)
+        # # parse result (JSON -> dict)
+        # data = json.loads(result.text)
+        # # extract info
+        data = self._get_json_url(self.url_info+query+self.url_info_suffix)
         return data
 
     def get_data(self, query=None):
