@@ -8,6 +8,17 @@ Simple web client, using URLLIB and basic parsing
 '''
 
 
+class WebClient(object):
+
+    def __init__(self) -> None:
+        super(WebClient, self).__init__()
+
+
+    def get_data():
+        # get_web_page
+        # parse_web_page
+        # return data
+        pass
 
 
 if __name__ == "__main__":
