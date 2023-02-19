@@ -7,6 +7,7 @@ Simple web client, using URLLIB and basic parsing
 @author: carlesm
 '''
 import urllib3
+import bs4
 
 class WebClient(object):
 
@@ -30,13 +31,18 @@ class WebClient(object):
         
 
     def search_html(self):
+
+        # /html/body/div/div[3]/pre
         # search HTML received for 
         # what we look for
-        return None
-
-    def parse_html(self, html):
-        # parse found data        
-        return None
+        soup = bs4.BeautifulSoup(self.html, features="html.parser")
+        div_main = soup.find_all('div', attrs={ "id" : "main" })[0]
+        return div_main.find_all('pre')[0]
+        
+    def parse_html(self, html):        
+        # parse found data     
+        data = html.text   
+        return data
 
     def parse_web_page(self):
         # search for data in html
