@@ -9,8 +9,10 @@ https://info.arxiv.org/help/api/basics.html
 @author: carlesm
 '''
 
+import urllib, urllib.request
+
 class ArxivClient(object):
-    def def __init__(self):
+    def __init__(self):
         super(ArxivClient, self).__init__()
         self.url = "http://export.arxiv.org/api/query?start=0&max_results=1&search_query="
 
@@ -18,9 +20,11 @@ class ArxivClient(object):
     
     def query_arxiv(self, query):
         # connect to URL
+        url_query = urllib.request.urlopen(self.url+query)
         # get result
+        xml_data = url_query.read().decode("utf-8")
         # handle errors
-        pass
+        return xml_data
 
     def xml_to_dict(self, results):
         # parxe XML to dict (all at once)
