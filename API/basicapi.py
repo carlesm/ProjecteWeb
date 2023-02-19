@@ -11,11 +11,12 @@ https://info.arxiv.org/help/api/basics.html
 
 import urllib, urllib.request
 import xmltodict
+import pprint
 
 class ArxivClient(object):
     def __init__(self):
         super(ArxivClient, self).__init__()
-        self.url = "http://export.arxiv.org/api/query?start=0&max_results=1&search_query="
+        self.url = "http://export.arxiv.org/api/query?start=0&max_results=2&search_query="
 
 
     
@@ -32,7 +33,12 @@ class ArxivClient(object):
         results = xmltodict.parse(results)
         return results
 
-    def extract_data(self, data):
+    def extract_data(self, data_in):
+        data = []
+        for e in data_in["feed"]["entry"]:
+            title = e["title"]
+            authors = "'".join([a["name"] for a in e["author"]])
+            data.append((title, authors))
         # get part of data dict
         return data
 
@@ -52,4 +58,4 @@ class ArxivClient(object):
 if __name__=="__main__":
     client = ArxivClient()
     data = client.get_data("ltsm")
-    print(data)
+    pprint.pprint(data)
