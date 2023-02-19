@@ -14,23 +14,22 @@ class WebClient(object):
         super(WebClient, self).__init__()
         self.data = None
 
-    def get_web_page():
+    def get_web_page(self):
         # connect to url
         # get URL content
         # store content
         pass
 
-    def parse_web_page():
+    def parse_web_page(self):
         # search for data in html
         # extract data from html
         # store data
         pass
 
-    def get_data():
+    def get_data(self):
         # get_web_page
         # parse_web_page
         # return data
-
         pass
 
 
