@@ -17,12 +17,17 @@ class ArxivClient(object):
 
     
     def query_arxiv(self, query):
+        # connect to URL
+        # get result
+        # handle errors
         pass
 
     def xml_to_dict(self, results):
+        # parxe XML to dict (all at once)
         pass
 
     def extract_data(self, data):
+        # get part of data dict
         pass
 
     
@@ -36,7 +41,6 @@ class ArxivClient(object):
         # return data
         return data
         
-
 
 
 if __name__=="__main__":
