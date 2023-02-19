@@ -38,10 +38,10 @@ class IPInfo(object):
     def query_ip_info(self, query):
         # query_ip_info -> JSON
         result = requests.get(self.url_info+query+self.url_info_suffix)
-
         # parse result (JSON -> dict)
+        data = json.loads(result.text)
         # extract info
-        return result
+        return data
 
     def get_data(self, query=None):
         # if !query
@@ -49,6 +49,7 @@ class IPInfo(object):
         if not query:
             data = self.get_own_ip()
         # query ipinfo
+        data = self.query_ip_info(data)
         # parse data
         # extract data
         return data
