@@ -52,10 +52,12 @@ class ArxivClient(object):
         data = self.extract_data(data)
         # return data
         return data
-        
 
 
 if __name__=="__main__":
     client = ArxivClient()
-    data = client.get_data("ltsm")
+    if not sys.argv[1]:
+        data = client.get_data(sys.argv[1])
+    else:
+        data = client.get_data("ltsm")
     pprint.pprint(data)
