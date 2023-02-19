@@ -20,17 +20,30 @@ class WebClient(object):
         # store content
         pass
 
+    def search_html(self):
+        # search HTML received for 
+        # what we look for
+        return None
+
+    def parse_html(self, html):
+        # parse found data        
+        return None
+
     def parse_web_page(self):
         # search for data in html
         # extract data from html
         # store data
-        pass
+        html = self.search_html()
+        self.data = self.parse_html(html)
+        
 
     def get_data(self):
         # get_web_page
         # parse_web_page
         # return data
-        pass
+        self.get_web_page()
+        self.parse_web_page()
+        return self.data
 
 
 if __name__ == "__main__":
