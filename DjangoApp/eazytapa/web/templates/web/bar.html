@@ -1,0 +1,8 @@
+{{ bar }}
+
+<br />
+<ul>
+    {% for tapa in bar.tapa_set.all %}
+    <li>{{ tapa.name }}</li>
+    {% endfor %}
+</ul>

@@ -3,6 +3,6 @@
 On anar de tapes avui?
 <ul>
     {% for bar in bars %}
-        <li>{{ bar.name }}</li>
+    <li><a href={% url 'Bar' bar.id %}>{{ bar.name }}</a></li>
     {% endfor %}
 </ul>

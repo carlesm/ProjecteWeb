@@ -16,3 +16,11 @@ from django.views import generic
 def home(request):
     bars = Bar.objects.all()[:5]
     return render(request, "web/index.html", {"bars": bars})
+
+
+def bar(request, bar_id):
+    try:
+        bar = Bar.objects.get(pk=bar_id)
+    except Bar.DoesNotExist:
+        raise Http404("Aquest Bar no existeix")
+    return render(request, 'web/bar.html', {'bar': bar})
