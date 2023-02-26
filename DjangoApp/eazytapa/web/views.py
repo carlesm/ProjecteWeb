@@ -5,10 +5,14 @@ from django.views import generic
 
 # Create your views here.
 
+# def home(request):
+#     bars = Bar.objects.all()[:5]
+#     dades = {
+#         'bars': bars,
+#     }
+#     resposta = [bar.name for bar in bars]
+#     return HttpResponse("<br/>".join(resposta))
+
 def home(request):
     bars = Bar.objects.all()[:5]
-    dades = {
-        'bars': bars,
-    }
-    resposta = [bar.name for bar in bars]
-    return HttpResponse("<br/>".join(resposta))
+    return render(request, "web/index.html", {"bars": bars})
