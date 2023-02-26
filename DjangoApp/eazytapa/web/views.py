@@ -24,3 +24,7 @@ def bar(request, bar_id):
     except Bar.DoesNotExist:
         raise Http404("Aquest Bar no existeix")
     return render(request, 'web/bar.html', {'bar': bar})
+
+class TapaView(generic.DetailView):
+    model = Tapa
+    template_name = 'web/tapa.html'

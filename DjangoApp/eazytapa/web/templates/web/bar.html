@@ -3,6 +3,6 @@
 <br />
 <ul>
     {% for tapa in bar.tapa_set.all %}
-    <li>{{ tapa.name }}</li>
+    <li><a href={% url 'Tapa' tapa.id %}>{{ tapa.name }}</a></li>
     {% endfor %}
 </ul>

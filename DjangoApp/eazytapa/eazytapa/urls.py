@@ -21,5 +21,6 @@ import web.views as wv
 urlpatterns = [
     path('', wv.home, name='Home'),
     path('bar/<int:bar_id>/', wv.bar, name = 'Bar'),
+    path('tapa/<int:pk>', wv.TapaView.as_view(), name = 'Tapa'),
     path('admin/', admin.site.urls),
 ]
